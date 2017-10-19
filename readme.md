@@ -1,3 +1,3 @@
 ## phpdock
 
-a very light docker PHP development environment form Laradock
+a very light docker PHP development environment

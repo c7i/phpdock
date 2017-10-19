@@ -1,0 +1,6 @@
+ARG PHP_VERSION=7.1
+FROM webdevops/php-dev:${PHP_VERSION}
+
+ARG PHP_COMPOSER_REPO_PACKAGIST=https://packagist.phpcomposer.com
+ENV PHP_COMPOSER_REPO_PACKAGIST ${PHP_COMPOSER_REPO_PACKAGIST}
+RUN composer config -g repo.packagist composer ${PHP_COMPOSER_REPO_PACKAGIST}
