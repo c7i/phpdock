@@ -23,7 +23,7 @@ services:
         - PHP_VERSION=${PHP_VERSION}
         - PHP_COMPOSER_REPO_PACKAGIST=${PHP_COMPOSER_REPO_PACKAGIST}
     volumes:
-      - ${GLOBAL_WEB_DOCUMENT_PATH}:/var/www
+      - ${WEB_DOCUMENT_PATH}:/var/www
     environment:
       - PHP_DATE_TIMEZONE=${PHP_DATE_TIMEZONE}
       - PHP_DISPLAY_ERRORS=${PHP_DISPLAY_ERRORS}
@@ -33,7 +33,7 @@ services:
     image: mysql:${MYSQL_VERSION}
     command: ${MYSQLD_FLAGS}
     volumes:
-      - ${GLOBAL_DATA_SAVE_PATH}/mysql:/var/lib/mysql
+      - ${MYSQL_DATA_PATH}:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_USER=${MYSQL_USER}
@@ -44,10 +44,6 @@ services:
 
   redis:
     image: redis
-    volumes:
-      - ${GLOBAL_DATA_SAVE_PATH}/redis:/data
-    ports:
-      - "${REDIS_PORT}:6379"
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
